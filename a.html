@@ -5,10 +5,28 @@
 	<title>Document</title>
 	<script>
 		function localHandler(data){
-			alert('我是本地函数，我接收了远程JS带来的数据：'+data.result);
+			document.write('我是本地函数，我接收了远程函数传来的信息：'+data.result);
 		}
 	</script>
-	<script src="js/remote.js"></script>
+	<script src="js/jquery-2.1.4.js"></script>
+	<script>
+		$(function(){
+			$.ajax({
+				type: "get",
+             	async: false,
+             	url: "https://github.com/ChengYiFan/crossOrigin/blob/master/b.html",
+             	dataType: "jsonp",
+             	jsonp: "callback",//传递给请求处理程序或页面的，用以获得jsonp回调函数名的参数名(一般默认为:callback)
+             	jsonpCallback:"localHandler",//自定义的jsonp回调函数名称，默认为jQuery自动生成的随机函数名，也可以写"?"，jQuery会自动为你处理数据
+             	success: function(json){
+                 	document.write('我是本地函数，我接收了远程函数传来的信息：'+json.result);
+             	},
+             	error: function(){
+                 	alert('fail');
+             	}
+			})
+		})
+	</script>
 </head>
 <body>
 	
