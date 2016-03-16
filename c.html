@@ -4,16 +4,20 @@
 	<meta charset="UTF-8">
 	<title>Document</title>
 	<script>
-		function onload(data){
-			var iframe = document.getElementById('iframe'),
-				win = iframe.contentWindow;
+		window.onmessage = function(e){
+			e = e || event;
+			alert(e.data);
+		}
 
-			win.postMessage({'name':'cynthia',});
+		function onLoad(){
+			var iframe = document.getElementById('iframe'),
+			win = iframe.contentWindow;
+			win.postMessage('cynthia','*');	
 		}
 	</script>
 </head>
 <body>
 
-	<iframe id="iframe" src="http://chengyifan.github.io/crossOrigin/b.html"  onload="onload()"></iframe>
+	<iframe id="iframe" src="http://chengyifan.github.io/crossOrigin/b.html" onload="onLoad()"></iframe>
 </body>
 </html>

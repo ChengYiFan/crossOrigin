@@ -6,11 +6,12 @@
 	<script>
 		window.onmessage = function(e){
 			e = e || event;
-			document.write('我是传递过来的值：'+ e.data);
+			document.getElementById("message").innerHTML ='我是传递过来的值：'+ e.data;
 		}
 	</script>
 </head>
 <body>
 	<div>我是b页面</div>
+	<div id="message"></div>
 </body>
 </html>
