@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script>
+		function onload(data){
+			var iframe = document.getElementById('iframe'),
+				win = iframe.contentWindow;
+
+			win.postMessage({'name':'cynthia',});
+		}
+	</script>
+</head>
+<body>
+
+	<iframe id="iframe" src="http://chengyifan.github.io/crossOrigin/b.html"  onload="onload()"></iframe>
+</body>
+</html>

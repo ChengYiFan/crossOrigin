@@ -4,10 +4,13 @@
 	<meta charset="UTF-8">
 	<title>我是b页面</title>
 	<script>
-		localHandler({'result': new Date() });
+		window.onmessage = function(e){
+			e = e || event;
+			document.write('我是传递过来的值：'+ e.data);
+		}
 	</script>
 </head>
 <body>
-	<div>1</div>
+	<div>我是b页面</div>
 </body>
 </html>
