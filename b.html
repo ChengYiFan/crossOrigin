@@ -9,11 +9,13 @@
 			e = e || event;
 			document.getElementById("message").innerHTML ='我是传递过来的值：'+ e.data;
 			origin = e.origin;
+			console.log(origin);
+			e.source.postMessage('received',origin);
 		}
 		function postMsg(obj){
 			window.postMessage(obj.value,origin);
 		}
-		console.log(origin);
+
 	</script>
 </head>
 <body>
