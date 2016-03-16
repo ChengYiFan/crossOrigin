@@ -8,10 +8,14 @@
 			e = e || event;
 			document.getElementById("message").innerHTML ='我是传递过来的值：'+ e.data;
 		}
+		function postMsg(obj){
+			window.postMessage(obj.value,'*');
+		}
 	</script>
 </head>
 <body>
 	<div>我是b页面</div>
 	<div id="message"></div>
+	向c页面传值：<input type="text" onlick='postMsg(this)'>
 </body>
 </html>
