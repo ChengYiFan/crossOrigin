@@ -4,16 +4,18 @@
 	<meta charset="UTF-8">
 	<title>我是b页面</title>
 	<script>
-	var origin;
+	var origin,source;
 		window.onmessage = function(e){
 			e = e || event;
 			document.getElementById("message").innerHTML ='我是传递过来的值：'+ e.data;
 			origin = e.origin;
+			source = e.source;
 			console.log(origin);
-			e.source.postMessage('received',origin);
+			console.log(source);
+			e.source.postMessage('received',e.origin);
 		}
 		function postMsg(obj){
-			window.postMessage(obj.value,origin);
+			source.postMessage(obj.value,origin);
 		}
 
 	</script>
