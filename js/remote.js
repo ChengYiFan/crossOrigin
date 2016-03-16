@@ -1,0 +1,1 @@
+localHandler({'result':new Date()});
